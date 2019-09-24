@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Sep  2 03:33:27 2018
-
-@author: ADMIN
-"""
 
 import pandas as pd
 import numpy as np
@@ -24,11 +18,6 @@ X_train[6]=X_train[6].replace(['No phone service'],['No'])
 for i in range(8,14):
     X_train[i]=X_train[i].replace(['No internet service'],['No'])
 
-
-"""from sklearn.preprocessing import Imputer
-imp=Imputer(missing_values="  ",strategy="mean",axis=0)
-X_train[:,18]=imp.fit_transform(X_train[:,18])
-"""
 
 X_train=X_train.iloc[:,:].values
 
@@ -74,12 +63,6 @@ from sklearn.preprocessing import StandardScaler
 sc=StandardScaler()
 X_train=sc.fit_transform(X_train)
 
-
-
-
-
-
-
 X_test=np.delete(X_test,0,axis=1)
 X_test=pd.DataFrame(X_test)
 
@@ -90,11 +73,6 @@ for i in range(8,14):
     X_test[i]=X_test[i].replace(['No internet service'],['No'])
 
 X_test=X_test.iloc[:,:].values
-
-"""from sklearn.preprocessing import Imputer
-imp=Imputer(missing_values="  ",strategy="mean",axis=0)
-X_train[:,18]=imp.fit_transform(X_train[:,18])
-"""
 
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 one3=OneHotEncoder(categorical_features=[7])
@@ -140,11 +118,6 @@ y_train[:,0]=le.fit_transform(y_train[:,0])
 y_test[:,0]=le.fit_transform(y_test[:,0])
 #y_pred[:,0]=le.fit_transform(y_pred[:,0])
 
-
-#y_pred=sc.fit_transform(y_pred)
-
-
-
 from keras.models import Sequential
 from keras.layers import Dense
 
@@ -167,20 +140,6 @@ from sklearn.metrics import confusion_matrix
 cm=confusion_matrix(y_test,y_pred)
 
 
-#61%
-#78%
-
-
-#X_train=pd.get_dummies(X_train[:,6])
-#X_train=one.fit_transform(X_train).toarray()
-#X_train=X_train[:,1:]
-
-#X_train.columns=['Gender','SeniorCitizen','Partner','','','','','','','','','','','','','','','','']
-
-
-
-
-
 X_train=X_train.iloc[:,:].values
 y_pred=y_pred.iloc[:,:].values
 y_test=y_test.iloc[:,:].values
@@ -192,7 +151,3 @@ y_train=pd.DataFrame(y_train)
 y_test=pd.DataFrame(y_test)
 
 y_pred=pd.DataFrame(data=y_pred)
-
-
-
-
